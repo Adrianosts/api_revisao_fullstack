@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
+let PORT = 8080; 
 
 app.use(express.json());
 
@@ -9,7 +10,7 @@ app.get("/", (request, response) => {
   return response.json("OK");
 });
 
-app.listen(8080, () => console.log("Servidor rodando na porta 8080"));
+app.listen(PORT, () => console.log("Servidor rodando na porta 8080"));
 
 // Váriável de produto e preço
 let nomeProduto;
