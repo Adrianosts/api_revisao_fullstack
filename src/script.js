@@ -5,6 +5,7 @@ const app = express();
 let PORT = 8080; 
 
 app.use(express.json());
+app.use(cors())
 
 app.get("/", (request, response) => {
   return response.json("OK");
