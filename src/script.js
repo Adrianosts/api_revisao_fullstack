@@ -1,4 +1,4 @@
-import express, { request, response } from "express";
+import express from "express";
 import cors from "cors";
 import bcrypt from "bcrypt";
 const { v4: uuidv4 } = require("uuid");
@@ -76,7 +76,7 @@ app.post("/criar-usuario", async (request, response) => {
 
 app.post("/login", async (request, response) => {
   try {
-    // Pegar (emailPessoaUsuaria) e (senhaPessoaUsuaria) do corpo da requisição
+    // Pegar (emailPessoaUsuaria) e (senhaPessoaUsuaria) armazenados no corpo da requisição.
     const emailPessoaUsuaria = request.body.emailPessoaUsuaria;
     const senhaPessoaUsuaria = request.body.senhaPessoaUsuaria;
 
@@ -90,6 +90,7 @@ app.post("/login", async (request, response) => {
       return response.status(400).json({ message: "Senha inválida" });
     }
 
+    // Buscar (emailPessoaUsuaria) na (listaPessoas) e verificar são iguais.
     const pessoaBuscada = listaPessoas.find(
       (pessoa) => pessoa.emailPessoaUsuaria === emailPessoaUsuaria
     );
